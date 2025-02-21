@@ -19,14 +19,14 @@ export function DataTableViewDialog<TData>({ row }: DataTableViewDialogProps<TDa
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <DropdownMenuItem onSelect={(e) => e.preventDefault()}>View</DropdownMenuItem>
+        <DropdownMenuItem onSelect={(e) => e.preventDefault()}>Xem</DropdownMenuItem>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>View Item Details</DialogTitle>
-          <DialogDescription>Here are the details of the selected item.</DialogDescription>
+          <DialogTitle>Xem Thông Tin Chi Tiết</DialogTitle>
+          <DialogDescription>Đây là thông tin chi tiết</DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
+        <div className="gap-4 grid py-4">
           <div>
             <strong>Name:</strong> {row.getValue("name")}
           </div>

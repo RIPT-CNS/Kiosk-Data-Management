@@ -18,32 +18,32 @@ export function DataTableCreateDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="ml-auto lg:flex">
+        <Button className="lg:flex ml-auto">
           Add
           <PlusCircledIcon className="size-4" />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Add New Item</DialogTitle>
-          <DialogDescription>Create a new item here. Click save when you're done.</DialogDescription>
+          <DialogTitle>Thêm thông tin mới</DialogTitle>
+          <DialogDescription>Sau khi thêm thông tin mới. Nhấn Xác nhận để lưu.</DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
+        <div className="gap-4 grid py-4">
+          <div className="items-center gap-4 grid grid-cols-4">
             <Label htmlFor="name" className="text-right">
-              Name
+              Tên
             </Label>
             <Input id="name" className="col-span-3" />
           </div>
-          <div className="grid grid-cols-4 items-center gap-4">
+          <div className="items-center gap-4 grid grid-cols-4">
             <Label htmlFor="description" className="text-right">
-              Description
+              Mô tả
             </Label>
             <Input id="description" className="col-span-3" />
           </div>
         </div>
         <DialogFooter>
-          <Button type="submit">Save changes</Button>
+          <Button type="submit">Xác nhận</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -1,3 +1,4 @@
+import SchoolCalendarData from "@/pages/SchoolCalendarData";
 import { IRouteConfig } from "@/types/RouteConfig";
 import {
   AreaChartIcon as ChartArea,
@@ -35,40 +36,46 @@ export const routeConfig: IRouteConfig = {
     children: {
       dataManagement: {
         path: "#data-management",
-        title: "Data Management",
+        title: "Quản lý dữ liệu",
         icon: Database,
         children: {
           identificationData: {
             path: "/dashboard/identification-data",
             element: IdentificationData,
-            title: "Identification Data",
+            title: "Nhận diện",
           },
           instituteCalendarData: {
             path: "/dashboard/institute-calendar-data",
             element: InstitueCalendarData,
-            title: "Institute Calendar Data",
+            title: "Lịch công tác viện",
+          },
+          schoolCalendarData: {
+            path: "/dashboard/school-calendar-data",
+            element: SchoolCalendarData,
+            title: "Lịch đào tạo",
           },
           eventData: {
             path: "/dashboard/event-data",
             element: EventData,
-            title: "Event Data",
+            title: "Sự kiện",
           },
+
         },
       },
       dataAnalysis: {
         path: "#data-analysis",
-        title: "Data Analysis",
+        title: "Thống kê dữ liệu",
         icon: ChartArea,
         children: {
           userBehaviour: {
             path: "/dashboard/user-behaviour",
             element: UserBehaviour,
-            title: "User Behaviour",
+            title: "Hành vi người dùng",
           },
           appointmentRequests: {
             path: "/dashboard/appointment-requests",
             element: AppointmentsRequests,
-            title: "Appointment Requests",
+            title: "Yêu cầu lịch hẹn",
           },
         },
       },

@@ -50,7 +50,7 @@ const DashboardNavProjects = ({
                             <DropdownMenuTrigger asChild>
                                 <SidebarMenuAction showOnHover>
                                     <MoreHorizontal />
-                                    <span className="sr-only">More</span>
+                                    <span className="sr-only">Thêm</span>
                                 </SidebarMenuAction>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent
@@ -60,16 +60,16 @@ const DashboardNavProjects = ({
                             >
                                 <DropdownMenuItem>
                                     <Folder className="text-muted-foreground" />
-                                    <span>View Project</span>
+                                    <span>Xem Dự Án</span>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem>
                                     <Forward className="text-muted-foreground" />
-                                    <span>Share Project</span>
+                                    <span>Chia Sẻ Dự Án</span>
                                 </DropdownMenuItem>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuItem>
                                     <Trash2 className="text-muted-foreground" />
-                                    <span>Delete Project</span>
+                                    <span>Xóa Dự Án</span>
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
@@ -78,7 +78,7 @@ const DashboardNavProjects = ({
                 <SidebarMenuItem>
                     <SidebarMenuButton className="text-sidebar-foreground/70">
                         <MoreHorizontal className="text-sidebar-foreground/70" />
-                        <span>More</span>
+                        <span>Thêm</span>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
             </SidebarMenu>

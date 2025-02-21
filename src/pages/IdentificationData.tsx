@@ -1,14 +1,15 @@
 import { Card } from "@/components/ui/card"
-import { Table } from "@/features/IdentificationData"
+import DataTable from "@/components/ui/data-table"
 import Blocks from "@/features/IdentificationData/components/Blocks"
+import { columns, data } from "@/features/IdentificationData/utils/constants"
 
 const IdentificationData = () => {
   return (
-    <Card className="flex flex-col gap-4 p-4 w-full h-full">
+    <Card className="flex flex-col gap-4 p-6 w-full h-full">
       <div className="gap-4 grid grid-cols-1 md:grid-cols-4">
         <Blocks />
       </div>
-      <Table />
+      <DataTable columns={columns} data={data} canEdit={false} />
     </Card>
   )
 }

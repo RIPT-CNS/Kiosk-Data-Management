@@ -47,17 +47,17 @@ const UserMenu = ({ user, variant = 'default' }: IUserMenuProps) => {
                 <DropdownMenuGroup>
                     <DropdownMenuItem>
                         <User className="mr-2 size-4" />
-                        <span>Profile</span>
+                        <span>Hồ sơ</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
                         <Settings className="mr-2 size-4" />
-                        <span>Settings</span>
+                        <span>Cài đặt</span>
                     </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={logout}>
                     <LogOut className="mr-2 size-4" />
-                    <span>Log out</span>
+                    <span>Đăng xuất</span>
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

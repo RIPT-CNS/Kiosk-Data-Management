@@ -13,14 +13,14 @@ export const columns: ColumnDef<IRecord>[] = [
       <Checkbox
         checked={table.getIsAllPageRowsSelected()}
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Select all"
+        aria-label="Chọn tất cả"
       />
     ),
     cell: ({ row }) => (
       <Checkbox
         checked={row.getIsSelected()}
         onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Select row"
+        aria-label="Chọn hàng"
       />
     ),
     enableSorting: false,
@@ -34,11 +34,11 @@ export const columns: ColumnDef<IRecord>[] = [
   },
   {
     accessorKey: "name",
-    header: "Name",
+    header: "Tên",
   },
   {
     accessorKey: "role",
-    header: "Role",
+    header: "Vai Trò",
   },
   {
     accessorKey: "department",
@@ -48,15 +48,15 @@ export const columns: ColumnDef<IRecord>[] = [
   },
   {
     accessorKey: "dob",
-    header: "DOB",
+    header: "Ngày Sinh",
   },
   {
     accessorKey: "gender",
-    header: "Gender",
+    header: "Giới tính",
   },
   {
     accessorKey: "img",
-    header: "Image",
+    header: "Ảnh nhận diện",
     cell: ({ row }) => <ViewImage row={row.original} />,
   },
   {
@@ -195,14 +195,27 @@ export const data: IRecord[] = [
       DICEBEAR_API,
       DICEBEAR_API,
     ]
+  },
+  {
+    id: "REC011",
+    name: "Pham Van L",
+    role: "Data Analyst",
+    department: "Data",
+    dob: "1990-06-16",
+    gender: "female",
+    img: [
+      DICEBEAR_API,
+      DICEBEAR_API,
+      DICEBEAR_API,
+    ]
   }
 ];
 
 export const statistics = [
   {
-    title: "Total submitted",
+    title: "Tổng số đã gửi",
     value: 200,
     trend: 10,
-    footer: "Person has submmited their informations",
+    footer: "Người đã thực hiện xác thực dữ liệu",
   },
 ]

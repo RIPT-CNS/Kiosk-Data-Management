@@ -23,9 +23,9 @@ export function DataTableRowActions<TData>({ row, canEdit }: DataTableRowActions
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="flex size-8 p-0 data-[state=open]:bg-muted">
+        <Button variant="ghost" className="flex data-[state=open]:bg-muted p-0 size-8">
           <DotsHorizontalIcon className="size-4" />
-          <span className="sr-only">Open menu</span>
+          <span className="sr-only">Mở menu</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[160px]">
@@ -35,7 +35,7 @@ export function DataTableRowActions<TData>({ row, canEdit }: DataTableRowActions
             <DropdownMenuSeparator />
             <DataTableEditDialog row={row} />
             <DropdownMenuItem>
-              <span className="text-destructive hover:text-destructive">Delete</span>
+              <span className="text-destructive hover:text-destructive">Xóa</span>
             </DropdownMenuItem>
           </>
         )}

@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card"
 
 const UserBehaviour = () => {
   return (
-    <Card className="p-6 w-full h-full">UserBehaviour</Card>
+    <Card className="flex flex-col gap-4 p-6 w-full h-full">UserBehaviour</Card>
   )
 }
 

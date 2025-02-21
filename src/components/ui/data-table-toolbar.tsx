@@ -17,13 +17,13 @@ export function DataTableToolbar<TData>({ table, canEdit }: DataTableToolbarProp
   const isFiltered = table.getState().columnFilters.length > 0
 
   return (
-    <div className="flex items-center justify-between">
+    <div className="flex justify-between items-center">
       <div className="flex flex-1 items-center space-x-2">
         <Input
-          placeholder="Searching..."
+          placeholder="Tìm kiếm..."
           value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) => table.getColumn("name")?.setFilterValue(event.target.value)}
-          className=" w-[150px] lg:w-[250px]"
+          className="w-[150px] lg:w-[250px]"
         />
         {isFiltered && (
           <Button variant="ghost" onClick={() => table.resetColumnFilters()} size="icon" className="px-2 lg:px-3">

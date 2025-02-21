@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card"
 
 const AppointmentsRequests = () => {
     return (
-        <Card className="p-6 w-full h-full">AppointmentsRequests</Card>
+        <Card className="flex flex-col gap-4 p-6 w-full h-full">AppointmentsRequests</Card>
     )
 }
 

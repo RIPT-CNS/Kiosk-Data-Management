@@ -18,16 +18,26 @@ interface DataTableViewOptionsProps<TData> {
 }
 
 export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps<TData>) {
+  const getColumnLabel = (column: any) => {
+    if (column.columnDef.header?.toString().includes('DataTableColumnHeader')) {
+      return column.columnDef.title || column.columnDef.header.props?.title || column.id
+    }
+    if (typeof column.columnDef.header === 'string') {
+      return column.columnDef.header
+    }
+    return column.id
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" className="ml-auto hidden lg:flex">
+        <Button variant="outline" className="hidden lg:flex ml-auto">
           <MixerHorizontalIcon className="size-4" />
-          View
+          Xem
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[150px]">
-        <DropdownMenuLabel>Toggle columns</DropdownMenuLabel>
+        <DropdownMenuLabel>Hiển thị cột</DropdownMenuLabel>
         <DropdownMenuSeparator />
         {table
           .getAllColumns()
@@ -40,7 +50,7 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
                 checked={column.getIsVisible()}
                 onCheckedChange={(value) => column.toggleVisibility(!!value)}
               >
-                {column.id}
+                {getColumnLabel(column)}
               </DropdownMenuCheckboxItem>
             )
           })}
@@ -48,4 +58,3 @@ export function DataTableViewOptions<TData>({ table }: DataTableViewOptionsProps
     </DropdownMenu>
   )
 }
-

@@ -23,13 +23,13 @@ const ThemeSwitcher = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
                 <DropdownMenuItem onClick={() => setTheme("light")}>
-                    Light
+                    Sáng
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme("dark")}>
-                    Dark
+                    Tối
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme("system")}>
-                    System
+                    Hệ thốngF
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
