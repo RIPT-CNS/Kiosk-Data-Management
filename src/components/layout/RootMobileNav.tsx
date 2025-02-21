@@ -14,7 +14,7 @@ const RootMobileNav = ({ navItems }: { navItems: INavItem[] }) => {
             <DrawerTrigger asChild>
                 <Button
                     variant="ghost"
-                    className="-ml-2 mr-2 h-8 w-8 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
+                    className="-ml-2 mr-2 size-8 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
                 >
                     <Menu className="h-6 w-6" />
                     <span className="sr-only">Toggle Menu</span>

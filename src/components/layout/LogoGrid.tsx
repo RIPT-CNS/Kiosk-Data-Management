@@ -4,7 +4,7 @@ const LogoItem = ({ icon: Icon }: {
     icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }) => (
     <div className="flex items-center justify-center">
-        <Icon className="w-8 h-8 text-muted-foreground" />
+        <Icon className="size-8 text-muted-foreground" />
     </div>
 )
 

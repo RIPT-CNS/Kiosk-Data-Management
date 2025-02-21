@@ -12,7 +12,7 @@ const Login = () => {
       <div className="flex flex-col gap-4 p-6 md:p-10">
         <div className="flex justify-center gap-2 md:justify-start">
           <Link to="/" className="flex items-center gap-2 font-bold">
-            <div className="flex h-6 w-6 items-center justify-center rounded-md bg-primary text-primary-foreground" >
+            <div className="flex h-6 w-6 items-center justify-center rounded-md bg-muted text-muted-foreground" >
               <Icons.logo className="size-4" />
             </div>
             {docsConfig.websiteName}

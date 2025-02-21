@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card"
 
 const InstitueCalendarData = () => {
   return (
-    <Card className="w-full h-full bg-muted p-6">InstitueCalendarData</Card>
+    <Card className="w-full h-full p-6">InstitueCalendarData</Card>
   )
 }
 

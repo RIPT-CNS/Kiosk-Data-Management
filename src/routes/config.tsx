@@ -2,9 +2,7 @@ import { IRouteConfig } from "@/types/RouteConfig";
 import {
   AreaChartIcon as ChartArea,
   Database,
-  Frame,
-  Map,
-  PieChart,
+  Frame
 } from "lucide-react";
 import { lazy } from "react";
 
@@ -81,16 +79,6 @@ export const routeConfig: IRouteConfig = {
       name: "Design Engineering",
       url: "#",
       icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
     },
   ],
 };
