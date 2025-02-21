@@ -37,7 +37,7 @@ const DashboardTeamSwitcher = ({
                             size="lg"
                             className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
                         >
-                            <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-muted text-primary">
+                            <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-muted text-muted-foreground">
                                 <activeTeam.logo className="size-4" />
                             </div>
                             <div className="grid flex-1 text-left text-sm leading-tight">

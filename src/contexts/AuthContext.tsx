@@ -1,5 +1,8 @@
+import { toast } from "@/hooks/use-toast";
+import { authService } from "@/services/auth/auth";
 import { IAuthContext } from "@/types/AuthContext";
 import { IUser } from "@/types/User";
+import { DICEBEAR_API } from "@/utils/endpoints";
 import { createContext, useContext, useEffect, useState } from "react";
 
 const AuthContext = createContext<IAuthContext | null>(null);
@@ -8,6 +11,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState<IUser>({} as IUser);
   const [loading, setLoading] = useState(true);
+  const [loadingAPI, setLoadingAPI] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -19,14 +23,36 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setLoading(false);
   }, []);
 
-  const login = (user: IUser) => {
-    localStorage.setItem("token", "token");
-    localStorage.setItem("user", JSON.stringify(user));
-    setUser(user);
-    setIsAuthenticated(true);
-    console.log("Logging in")
+  const login = async (cccd_id: string, password: string) => {
+    setLoadingAPI(true);
+    try {
+      const { data } = await authService.login(cccd_id, password);
+      if (data.success) {
+        const userWithAvatar = {
+          ...data.payload.user,
+          image: `${DICEBEAR_API}/${data.payload.user.name}`
+        };
+        localStorage.setItem("token", data.payload.accessToken);
+        localStorage.setItem("user", JSON.stringify(userWithAvatar));
+        setUser(userWithAvatar);
+        setIsAuthenticated(true);
+        toast({
+          title: "Login Successfully",
+        });
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.log(error);
+      toast({
+        title: "Login Failed",
+        variant: "destructive",
+      });
+      return false;
+    } finally {
+      setLoadingAPI(false);
+    }
   };
-
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -34,21 +60,12 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setUser({} as IUser);
   };
 
-  const register = () => {
-    console.log("Registering");
-  }
-
-  const forgotPassword = () => {
-    console.log("Forgot Password");
-  }
-
   const contextValue: IAuthContext = {
     isAuthenticated,
     loading,
+    loadingAPI,
     login,
-    register,
     logout,
-    forgotPassword,
     user,
   };
 

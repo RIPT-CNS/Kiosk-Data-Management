@@ -2,7 +2,7 @@ import DynamicBreadcrumb from '@/components/common/DynamicBreadcrumb';
 import DashboardSidebar from '@/components/layout/DashboardSidebar';
 import { Separator } from '@/components/ui/separator';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
-import { BaseContextProvider } from '@/contexts/BaseContext';
+import { Toaster } from '@/components/ui/toaster';
 import { BreadcrumbProvider } from '@/contexts/BreadcrumbContext';
 import { useBreadcrumbUpdate } from '@/features/BaseFeature/hooks/useBreadcrumbUpdate';
 import { Outlet } from 'react-router';
@@ -31,11 +31,12 @@ const DashboardContent = () => {
 
 const DashboardLayout = () => {
   return (
-    <BaseContextProvider>
+    <>
       <BreadcrumbProvider>
         <DashboardContent />
       </BreadcrumbProvider>
-    </BaseContextProvider>
+      <Toaster />
+    </>
   );
 };
 

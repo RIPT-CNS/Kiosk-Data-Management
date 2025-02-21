@@ -1,1 +1,0 @@
-export const DICEBEAR_API = 'https://api.dicebear.com/9.x/glass/svg';

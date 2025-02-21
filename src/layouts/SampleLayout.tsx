@@ -1,9 +1,9 @@
-import { BaseContextProvider } from "@/contexts/BaseContext";
+import { Toaster } from "@/components/ui/toaster";
 import { Outlet } from "react-router";
 
 const RootLayout = () => {
     return (
-        <BaseContextProvider>
+        <>
             <div className="flex flex-1 flex-col ">
                 <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
                     <div className="container-wrapper">
@@ -19,7 +19,8 @@ const RootLayout = () => {
                     </div>
                 </footer>
             </div>
-        </BaseContextProvider>
+            <Toaster />
+        </>
     );
 }
 

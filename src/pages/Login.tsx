@@ -6,8 +6,7 @@ import LoginForm from "@/features/Auth/components/LoginForm";
 import { Link } from "react-router";
 
 const Login = () => {
-
-  const { login } = useAuth();
+  const { login, loadingAPI } = useAuth();
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col gap-4 p-6 md:p-10">
@@ -21,7 +20,7 @@ const Login = () => {
         </div>
         <div className="flex flex-1 items-center justify-center">
           <div className="w-full max-w-xs">
-            <LoginForm login={login} />
+            <LoginForm login={login} loadingAPI={loadingAPI} />
           </div>
         </div>
       </div>

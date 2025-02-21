@@ -25,11 +25,11 @@ const UserMenu = ({ user, variant = 'default' }: IUserMenuProps) => {
                     <Avatar className="size-8 antialiased">
                         <AvatarImage
                             src={user?.image}
-                            alt={user.username}
+                            alt={user.name}
                             className="object-cover"
                         />
                         <AvatarFallback className="text-sm bg-primary/10">
-                            {user.username.charAt(0)}
+                            {user.name.charAt(0)}
                         </AvatarFallback>
                     </Avatar>
                 </Button>
@@ -37,9 +37,9 @@ const UserMenu = ({ user, variant = 'default' }: IUserMenuProps) => {
             <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
-                        <p className="text-sm font-medium leading-none line-clamp-1">{user.username}</p>
+                        <p className="text-sm font-medium leading-none line-clamp-1">{user.name}</p>
                         <p className="text-xs leading-none text-muted-foreground line-clamp-1">
-                            {user.email}
+                            {user.role}
                         </p>
                     </div>
                 </DropdownMenuLabel>

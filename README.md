@@ -1,9 +1,4 @@
 # React Shadcn Base
-![Landing](/demo_image/landing.png)
-![Auth](/demo_image/auth.png)
-![Dashboard](/demo_image/dashboard.png)
-[Demo React Shadcn Base](https://react-shadcn-base.vercel.app/)
-
 - A base project for Vite React application, building with Shadcn/ui component library.
 - Come with essential features like Auth, Dashboard, Landing page, Charts, CRUD Table,...
 - Integrate with other popular libraries like SWR for fetching ( You can use axios if you want), React Router v7 for routing management, Framer motion for animation.

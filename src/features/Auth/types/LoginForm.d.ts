@@ -1,3 +1,6 @@
+import { ILoginResponse } from "@/services/auth/type";
+
 export interface ILoginFormProps {
- login: (user: IUser) => void;
+    login: (cccd_id: string, password: string) => Promise<boolean>;
+    loadingAPI: boolean;
 }
