@@ -23,14 +23,14 @@ const UploadForm = ({ onUpload, loading }: IUploadFormProps) => {
         <Dialog>
             <DialogTrigger asChild>
                 <Button className="w-fit">
-                    Cập nhật lịch tuần
+                    Cập nhật lịch đào tạo
                     <FileScan className="size-4" />
                 </Button>
             </DialogTrigger>
             <DialogContent className="p-4 rounded-md w-[90%] sm:max-w-[625px]">
                 <DialogHeader>
-                    <DialogTitle>Tải lên lịch tuần mới</DialogTitle>
-                    <DialogDescription>Chỉ chấp nhận tệp .docx</DialogDescription>
+                    <DialogTitle>Tải lên lịch đào tạo mới</DialogTitle>
+                    <DialogDescription>Chỉ chấp nhận tệp .xlsx</DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-8">
@@ -39,11 +39,11 @@ const UploadForm = ({ onUpload, loading }: IUploadFormProps) => {
                             name="files"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Tệp lịch tuần</FormLabel>
+                                    <FormLabel>Tệp lịch đào tạo</FormLabel>
                                     <FormControl>
                                         <Input
                                             type="file"
-                                            accept=".docx"
+                                            accept=".xlsx"
                                             onChange={(e) => field.onChange(e.target.files)}
                                         />
                                     </FormControl>

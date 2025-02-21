@@ -12,7 +12,7 @@ const Login = lazy(() => import("@/pages/Login"));
 const IdentificationData = lazy(() => import("@/pages/IdentificationData"));
 const InstitueCalendarData = lazy(() => import("@/pages/InstitueCalendarData"));
 const EventData = lazy(() => import("@/pages/EventData"));
-const UserBehaviour = lazy(() => import("@/pages/UserBehaviour"));
+const UserBehaviourStatistics = lazy(() => import("@/pages/UserBehaviourStatistics"));
 const AppointmentsRequests = lazy(() => import("@/pages/AppointmentsRequests"));
 
 export const routeConfig: IRouteConfig = {
@@ -67,12 +67,12 @@ export const routeConfig: IRouteConfig = {
         title: "Thống kê dữ liệu",
         icon: ChartArea,
         children: {
-          userBehaviour: {
+          userBehaviourStatistics: {
             path: "/dashboard/user-behaviour",
-            element: UserBehaviour,
+            element: UserBehaviourStatistics,
             title: "Hành vi người dùng",
           },
-          appointmentRequests: {
+          appointmentRequestsStatistics: {
             path: "/dashboard/appointment-requests",
             element: AppointmentsRequests,
             title: "Yêu cầu lịch hẹn",
