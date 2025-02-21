@@ -36,14 +36,14 @@ const LoginForm = ({ login, loadingAPI }: ILoginFormProps) => {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-col items-center gap-2 text-center">
-        <h1 className="text-2xl font-bold">Login to your account</h1>
-        <p className="text-balance text-sm text-muted-foreground">
+        <h1 className="font-bold text-2xl">Login to your account</h1>
+        <p className="text-muted-foreground text-sm text-balance">
           Enter your infos below to login to your account
         </p>
       </div>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="gap-6 grid">
           <FormField
             control={form.control}
             name="cccd_id"

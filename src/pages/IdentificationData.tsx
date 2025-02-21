@@ -4,8 +4,8 @@ import Blocks from "@/features/IdentificationData/components/Blocks"
 
 const IdentificationData = () => {
   return (
-    <Card className="flex flex-col p-4 w-full h-full gap-4">
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-4">
+    <Card className="flex flex-col gap-4 p-4 w-full h-full">
+      <div className="gap-4 grid grid-cols-1 md:grid-cols-4">
         <Blocks />
       </div>
       <Table />

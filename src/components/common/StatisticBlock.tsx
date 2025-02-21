@@ -10,25 +10,25 @@ const StatisticBlock = ({
     footer,
 }: IStatisticBlockProps) => {
     return (
-        <Card className="p-4 flex flex-col gap-4">
+        <Card className="relative flex flex-col gap-4 bg-gradient-to-b from-transparent to-primary/5 hover:shadow-lg dark:hover:shadow-primary/20 hover:shadow-primary/10 p-4 border-primary transition-all duration-300">
             <CardTitle>{title}</CardTitle>
             <CardContent className="flex items-center gap-4 p-0">
-                <p className="text-3xl font-bold">{value}</p>
+                <p className="font-bold text-3xl">{value}</p>
                 {
                     trend && trend > 0 ? (
-                        <Badge variant="outline" className="px-4 py-2 space-x-2 text-green-500 border-none bg-green-500/10">
+                        <Badge variant="outline" className="space-x-2 bg-green-500/10 px-4 py-2 border-none text-green-500">
                             <span>{trend}%</span>
                             <TrendingUp className="size-4" />
                         </Badge>
                     ) : (
-                        <Badge variant="outline" className="px-4 space-x-2 text-red-500 border-none bg-red-500/10">
+                        <Badge variant="outline" className="space-x-2 bg-red-500/10 px-4 border-none text-red-500">
                             <span>{trend}%</span>
-                            <TrendingUp className="size-4 transform rotate-180" />
+                            <TrendingUp className="size-4 rotate-180 transform" />
                         </Badge>
                     )
                 }
             </CardContent>
-            <CardFooter className="p-0 text-xs text-muted-foreground">{footer}</CardFooter>
+            <CardFooter className="p-0 text-muted-foreground text-xs">{footer}</CardFooter>
         </Card>
     )
 }

@@ -6,9 +6,9 @@ import { Outlet } from "react-router";
 const RootLayout = () => {
   return (
     <>
-      <div className="flex flex-1 flex-col">
+      <div className="flex flex-col flex-1">
         <RootHeader />
-        <main className="flex flex-1 flex-col">
+        <main className="flex flex-col flex-1">
           <Outlet />
         </main>
         <RootFooter />

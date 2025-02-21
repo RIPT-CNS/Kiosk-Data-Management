@@ -20,7 +20,7 @@ const UserMenu = ({ user, variant = 'default' }: IUserMenuProps) => {
             <DropdownMenuTrigger asChild>
                 <Button
                     variant={variant}
-                    className="relative size-8 rounded-full p-0 overflow-hidden"
+                    className="relative p-0 rounded-full size-8 overflow-hidden"
                 >
                     <Avatar className="size-8 antialiased">
                         <AvatarImage
@@ -28,7 +28,7 @@ const UserMenu = ({ user, variant = 'default' }: IUserMenuProps) => {
                             alt={user.name}
                             className="object-cover"
                         />
-                        <AvatarFallback className="text-sm bg-primary/10">
+                        <AvatarFallback className="bg-primary/10 text-sm">
                             {user.name.charAt(0)}
                         </AvatarFallback>
                     </Avatar>
@@ -37,8 +37,8 @@ const UserMenu = ({ user, variant = 'default' }: IUserMenuProps) => {
             <DropdownMenuContent className="w-56" align="end" forceMount>
                 <DropdownMenuLabel className="font-normal">
                     <div className="flex flex-col space-y-1">
-                        <p className="text-sm font-medium leading-none line-clamp-1">{user.name}</p>
-                        <p className="text-xs leading-none text-muted-foreground line-clamp-1">
+                        <p className="font-medium text-sm line-clamp-1 leading-none">{user.name}</p>
+                        <p className="text-muted-foreground text-xs line-clamp-1 leading-none">
                             {user.role}
                         </p>
                     </div>
