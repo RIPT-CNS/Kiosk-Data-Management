@@ -1,32 +1,30 @@
 import { toast } from "@/hooks/use-toast";
 import { useState } from "react";
-import { classCalendarService } from "../services/classCalendar";
-import { teacherCalendarService } from "../services/teacherCalendar";
+import { uploadCalendarService } from "../services/schoolCalendar";
 import { IFormData } from "../types/Formdata";
 import { IRecord } from "../types/Record";
 
 export const useSchoolCalendar = () => {
   const [loadingAPI, setLoadingAPI] = useState(false);
-  const [calendarData, setCalendarData] = useState<IRecord[]>([]);
+  const [calendarStatistics, setCalendarStatistics] = useState<IRecord[]>();
 
-  const getCalendar = async (type: "all" | "class" | "teacher") => {
+  const getSchoolCalendarStatistics = async () => {
     setLoadingAPI(true);
     try {
-      const response = type === "all" ? await classCalendarService.get() : type === "class" ? await classCalendarService.get() : 
-        await teacherCalendarService.get();
+      const response = await uploadCalendarService.get();
       if (response.data.success) {
-        setCalendarData(response.data.payload);
+        setCalendarStatistics([response.data.payload]);
         toast({
           title: "Lấy dữ liệu thành công",
         });
       }
       return response.data.payload;
     } catch (error) {
+      console.log(error);
       toast({
-        title: "Có lỗi xảy ra khi lấy dữ liệu",
+        title: "Có lỗi xảy ra khi tải dữ liệu",
         variant: "destructive",
       });
-      return [];
     } finally {
       setLoadingAPI(false);
     }
@@ -35,12 +33,12 @@ export const useSchoolCalendar = () => {
   const updateSchoolCalendar = async (data: IFormData) => {
     setLoadingAPI(true);
     try {
-      const response = await classCalendarService.update(data);
-      if (response.data.success) {
+      const response = await uploadCalendarService.update(data);
+      if (response.data.detail) {
         toast({
           title: "File tải lên thành công",
         });
-        await getCalendar("all");
+        await getSchoolCalendarStatistics();
       }
     } catch (error) {
       console.log(error);
@@ -54,9 +52,9 @@ export const useSchoolCalendar = () => {
   };
 
   return {
-    getCalendar,
+    getSchoolCalendarStatistics,
     updateSchoolCalendar,
     loadingAPI,
-    calendarData,
+    calendarStatistics,
   };
 };

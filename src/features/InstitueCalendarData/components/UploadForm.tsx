@@ -1,26 +1,48 @@
-import { Button } from "@/components/ui/button";
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { FileScan } from "lucide-react";
-import { useForm } from "react-hook-form";
-import { IFormData } from "../types/Formdata";
-import { IUploadFormProps } from "../types/UploadForm";
+"use client"
+
+import { Button } from "@/components/ui/button"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger
+} from "@/components/ui/dialog"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { FileScan } from "lucide-react"
+import { useState } from "react"
+import { useForm } from "react-hook-form"
+import { IFormData } from "../types/Formdata"
+import { IUploadFormProps } from "../types/UploadForm"
+import { formSchema } from "../utils/constants"
+
 
 const UploadForm = ({ onUpload, loading }: IUploadFormProps) => {
+    const [open, setOpen] = useState(false)
+
     const form = useForm<IFormData>({
+        resolver: zodResolver(formSchema),
         defaultValues: {
             files: undefined,
         },
-    });
+    })
 
     const handleSubmit = async (data: IFormData) => {
-        await onUpload(data);
-        form.reset();
-    };
+        try {
+            await onUpload(data)
+            form.reset()
+            setOpen(false)
+        } catch (error) {
+            console.error("Upload failed:", error)
+        }
+    }
 
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 <Button className="w-fit">
                     Cập nhật lịch tuần
@@ -33,7 +55,7 @@ const UploadForm = ({ onUpload, loading }: IUploadFormProps) => {
                     <DialogDescription>Chỉ chấp nhận tệp .docx</DialogDescription>
                 </DialogHeader>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-8">
+                    <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
                         <FormField
                             control={form.control}
                             name="files"
@@ -41,28 +63,24 @@ const UploadForm = ({ onUpload, loading }: IUploadFormProps) => {
                                 <FormItem>
                                     <FormLabel>Tệp lịch tuần</FormLabel>
                                     <FormControl>
-                                        <Input
-                                            type="file"
-                                            accept=".docx"
-                                            onChange={(e) => field.onChange(e.target.files)}
-                                        />
+                                        <Input type="file" accept=".docx" onChange={(e) => field.onChange(e.target.files)} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
                             )}
                         />
                         <DialogFooter>
-                            <DialogClose asChild>
-                                <Button type="submit" isLoading={loading}>
-                                    Tải lên
-                                </Button>
-                            </DialogClose>
+                            <Button type="submit" isLoading={loading}>
+                                {loading ? "Đang tải lên..." : "Tải lên"}
+                            </Button>
                         </DialogFooter>
                     </form>
                 </Form>
             </DialogContent>
         </Dialog>
-    );
-};
+    )
+}
 
-export default UploadForm;
+export default UploadForm
+
+

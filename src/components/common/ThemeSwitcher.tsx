@@ -29,7 +29,7 @@ const ThemeSwitcher = () => {
                     Tối
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setTheme("system")}>
-                    Hệ thốngF
+                    Hệ thống
                 </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>

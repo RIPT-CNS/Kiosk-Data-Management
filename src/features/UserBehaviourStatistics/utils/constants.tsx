@@ -1,53 +1,28 @@
-import { Checkbox } from "@/components/ui/checkbox";
-import { DataTableRowActions } from "@/components/ui/data-table-row-actions";
 import { ColumnDef } from "@tanstack/react-table";
 import { IRecord } from "../types/Record";
 
 export const columns: ColumnDef<IRecord>[] = [
   {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={table.getIsAllPageRowsSelected()}
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Chọn tất cả"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Chọn hàng"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
-  {
-    accessorKey: "vai_tro",
+    accessorKey: "role",
     header: "Vai trò",
   },
   {
     accessorKey: "count",
     header: "Số lượng người dùng",
   },
-  {
-    id: "actions",
-    cell: ({ row }) => <DataTableRowActions row={row} canEdit={false} />,
-  },
 ];
 
 export const data: IRecord[] = [
   {
-    vai_tro: "Khách",
+    role: "Khách",
     count: 50,
   },
   {
-    vai_tro: "Cán bộ",
+    role: "Cán bộ",
     count: 100,
   },
   {
-    vai_tro: "Sinh viên",
+    role: "Sinh viên",
     count: 50,
   },
 ];

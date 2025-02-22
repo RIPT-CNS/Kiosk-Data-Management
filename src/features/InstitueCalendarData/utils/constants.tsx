@@ -1,30 +1,10 @@
-import { Checkbox } from "@/components/ui/checkbox";
 import { DataTableColumnHeader } from "@/components/ui/data-table-column-header";
-import { DataTableRowActions } from "@/components/ui/data-table-row-actions";
 import { formatISODate } from "@/utils/functions";
 import { ColumnDef } from "@tanstack/react-table";
 import { IRecord } from "../types/Record";
+import { z } from "zod";
 
 export const columns: ColumnDef<IRecord>[] = [
-  {
-    id: "select",
-    header: ({ table }) => (
-      <Checkbox
-        checked={table.getIsAllPageRowsSelected()}
-        onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-        aria-label="Chọn tất cả"
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        onCheckedChange={(value) => row.toggleSelected(!!value)}
-        aria-label="Chọn hàng"
-      />
-    ),
-    enableSorting: false,
-    enableHiding: false,
-  },
   {
     accessorKey: "id",
     header: ({ column }) => (
@@ -54,8 +34,17 @@ export const columns: ColumnDef<IRecord>[] = [
     accessorKey: "preparation",
     header: "Bên chuẩn bị",
   },
-  {
-    id: "actions",
-    cell: ({ row }) => <DataTableRowActions row={row} canEdit={false} />,
-  },
 ];
+
+
+export const formSchema = z.object({
+    files: z
+        .instanceof(FileList)
+        .refine(
+            (files) =>
+                files.length > 0 && files[0].type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            {
+                message: "Vui lòng chọn một tệp .docx",
+            },
+        ),
+})

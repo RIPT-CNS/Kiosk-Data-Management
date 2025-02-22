@@ -1,4 +1,4 @@
 export interface IRecord {
-  vai_tro: string;
+  role: string;
   count: number;
 }

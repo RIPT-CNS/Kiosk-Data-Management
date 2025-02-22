@@ -1,8 +1,6 @@
 export interface IRecord {
-  id: number;
-  name: string;
-  iso_datetime: string;
-  location: string;
-  attendees: string;
-  preparation: string;
+  hocPhan: number;
+  lopTinChi: number;
+  nhomTinChi: number;
+  canBo_nhomTinChi: number;
 }
