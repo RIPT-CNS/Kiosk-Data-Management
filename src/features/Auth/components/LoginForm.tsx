@@ -80,7 +80,7 @@ const LoginForm = ({ login, loadingAPI }: ILoginFormProps) => {
             )}
           />
 
-          <Button type="submit" className="w-full" disabled={loadingAPI}>
+          <Button type="submit" className="w-full" isLoading={loadingAPI}>
             Login
           </Button>
         </form>
