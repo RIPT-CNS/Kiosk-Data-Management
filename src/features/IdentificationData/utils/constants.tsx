@@ -43,7 +43,7 @@ export const columns: ColumnDef<IRecord>[] = [
   {
     accessorKey: "department",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Department" />
+      <DataTableColumnHeader column={column} title="Phòng ban" />
     ),
   },
   {
