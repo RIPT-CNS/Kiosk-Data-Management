@@ -1,9 +1,11 @@
 import RootFooter from "@/components/layout/RootFooter";
 import RootHeader from "@/components/layout/RootHeader";
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "sonner";
 import { Outlet } from "react-router";
+import { useTheme } from "@/components/common/ThemeProvider";
 
 const RootLayout = () => {
+  const { theme } = useTheme();
   return (
     <>
       <div className="flex flex-col flex-1">
@@ -13,7 +15,7 @@ const RootLayout = () => {
         </main>
         <RootFooter />
       </div>
-      <Toaster />
+      <Toaster richColors position="top-center" theme={theme} />
     </>
   );
 }

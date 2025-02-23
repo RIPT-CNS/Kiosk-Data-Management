@@ -2,10 +2,11 @@ import DynamicBreadcrumb from '@/components/common/DynamicBreadcrumb';
 import DashboardSidebar from '@/components/layout/DashboardSidebar';
 import { Separator } from '@/components/ui/separator';
 import { SidebarInset, SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
-import { Toaster } from '@/components/ui/toaster';
+import { Toaster } from "sonner";
 import { BreadcrumbProvider } from '@/contexts/BreadcrumbContext';
 import { useBreadcrumbUpdate } from '@/hooks/useBreadcrumbUpdate';
 import { Outlet } from 'react-router';
+import { useTheme } from '@/components/common/ThemeProvider';
 
 const DashboardContent = () => {
   useBreadcrumbUpdate();
@@ -30,12 +31,13 @@ const DashboardContent = () => {
 };
 
 const DashboardLayout = () => {
+  const { theme } = useTheme();
   return (
     <>
       <BreadcrumbProvider>
         <DashboardContent />
       </BreadcrumbProvider>
-      <Toaster />
+      <Toaster richColors position="top-center" theme={theme} />
     </>
   );
 };

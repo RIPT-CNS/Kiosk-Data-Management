@@ -1,5 +1,5 @@
-import { toast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { toast } from "sonner";
 import { institueCalendarService } from "../services/institueCalendar";
 import { IFormData } from "../types/Formdata";
 import { IRecord } from "../types/Record";
@@ -14,16 +14,10 @@ export const useInstitueCalendar = () => {
       const response = await institueCalendarService.get();
       if (response.data.success) {
         setCalendarData(response.data.payload);
-        toast({
-          title: "Lấy dữ liệu thành công",
-        });
       }
       return response.data.payload;
     } catch (error) {
-      toast({
-        title: "Có lỗi xảy ra khi lấy dữ liệu",
-        variant: "destructive",
-      });
+      toast.error("Có lỗi xảy ra khi lấy dữ liệu");
       return [];
     } finally {
       setLoadingAPI(false);
@@ -35,17 +29,12 @@ export const useInstitueCalendar = () => {
     try {
       const response = await institueCalendarService.update(data);
       if (response.data.success) {
-        toast({
-          title: "File tải lên thành công",
-        });
+        toast.success("Cập nhật lịch công tác viện thành công");
         await getInstitueCalendar();
       }
     } catch (error) {
       console.log(error);
-      toast({
-        title: "Có lỗi xảy ra khi tải lên file",
-        variant: "destructive",
-      });
+      toast.error("Có lỗi xảy ra khi cập nhật lịch công tác viện");
     } finally {
       setLoadingAPI(false);
     }

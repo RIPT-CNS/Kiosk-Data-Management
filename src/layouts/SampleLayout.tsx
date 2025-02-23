@@ -1,7 +1,8 @@
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from "sonner";
 import { Outlet } from "react-router";
-
+import { useTheme } from "@/components/common/ThemeProvider";
 const RootLayout = () => {
+    const { theme } = useTheme();
     return (
         <>
             <div className="flex flex-col flex-1">
@@ -19,7 +20,7 @@ const RootLayout = () => {
                     </div>
                 </footer>
             </div>
-            <Toaster />
+            <Toaster richColors position="top-center" theme={theme} />
         </>
     );
 }

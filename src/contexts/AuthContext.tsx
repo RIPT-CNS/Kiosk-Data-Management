@@ -1,9 +1,10 @@
-import { toast } from "@/hooks/use-toast";
+
 import { authService } from "@/services/auth/auth";
 import { IAuthContext } from "@/types/AuthContext";
 import { IUser } from "@/types/User";
 import { DICEBEAR_API } from "@/utils/endpoints";
 import { createContext, useContext, useEffect, useState } from "react";
+import { toast } from "sonner";
 
 const AuthContext = createContext<IAuthContext | null>(null);
 
@@ -36,18 +37,13 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         localStorage.setItem("user", JSON.stringify(userWithAvatar));
         setUser(userWithAvatar);
         setIsAuthenticated(true);
-        toast({
-          title: "Login Successfully",
-        });
+        toast.success("Login Successful");
         return true;
       }
       return false;
     } catch (error) {
       console.log(error);
-      toast({
-        title: "Login Failed",
-        variant: "destructive",
-      });
+      toast.error("Login Failed");
       return false;
     } finally {
       setLoadingAPI(false);

@@ -1,8 +1,9 @@
-import { toast } from "@/hooks/use-toast";
+
 import { useState } from "react";
 import { uploadCalendarService } from "../services/schoolCalendar";
 import { IFormData } from "../types/Formdata";
 import { IRecord } from "../types/Record";
+import { toast } from "sonner";
 
 export const useSchoolCalendar = () => {
   const [loadingAPI, setLoadingAPI] = useState(false);
@@ -14,17 +15,12 @@ export const useSchoolCalendar = () => {
       const response = await uploadCalendarService.get();
       if (response.data.success) {
         setCalendarStatistics([response.data.payload]);
-        toast({
-          title: "Lấy dữ liệu thành công",
-        });
       }
       return response.data.payload;
     } catch (error) {
       console.log(error);
-      toast({
-        title: "Có lỗi xảy ra khi tải dữ liệu",
-        variant: "destructive",
-      });
+      toast.error("Có lỗi xảy ra khi lấy dữ liệu");
+
     } finally {
       setLoadingAPI(false);
     }
@@ -35,17 +31,12 @@ export const useSchoolCalendar = () => {
     try {
       const response = await uploadCalendarService.update(data);
       if (response.data.detail) {
-        toast({
-          title: "File tải lên thành công",
-        });
         await getSchoolCalendarStatistics();
       }
+      toast.success("Cập nhật lịch đào tạo thành công");
     } catch (error) {
       console.log(error);
-      toast({
-        title: "Có lỗi xảy ra khi tải lên file",
-        variant: "destructive",
-      });
+      toast.error("Có lỗi xảy ra khi tải lên file");
     } finally {
       setLoadingAPI(false);
     }

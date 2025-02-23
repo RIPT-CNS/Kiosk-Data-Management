@@ -1,7 +1,8 @@
-import { toast } from "@/hooks/use-toast";
+
 import { useState } from "react";
 import { IRecord } from "../types/Record";
 import { userBehaviourService } from "../services/userBehaviour";
+import { toast } from "sonner";
 
 export const useUserBehaviourStatistic = () => {
   const [loadingAPI, setLoadingAPI] = useState(false);
@@ -13,16 +14,10 @@ export const useUserBehaviourStatistic = () => {
       const response = await userBehaviourService.getRoleStatistic();
       if (response.data.success) {
         setRoleStatisticData(response.data.payload);
-        toast({
-          title: "Lấy dữ liệu thành công",
-        });
       }
       return response.data.payload;
     } catch (error) {
-      toast({
-        title: "Có lỗi xảy ra khi lấy dữ liệu",
-        variant: "destructive",
-      });
+      toast.error("Có lỗi xảy ra khi lấy dữ liệu");
       return [];
     } finally {
       setLoadingAPI(false);
