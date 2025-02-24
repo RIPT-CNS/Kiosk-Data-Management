@@ -43,7 +43,7 @@ const AnnualChart = () => {
                 <div className="font-bold text-2xl">Tổng số: {totalAppointments}</div>
             </CardHeader>
             <CardContent>
-                <ChartContainer config={chartConfig} className="w-full min-h-[100px] max-h-[177px]">
+                <ChartContainer config={chartConfig} className="w-full min-h-[100px]">
                     <BarChart
                         data={chartData}
                         margin={{

@@ -14,18 +14,19 @@ const StatisticBlock = ({
             <CardTitle>{title}</CardTitle>
             <CardContent className="flex items-center gap-4 p-0">
                 <p className="font-bold text-3xl">{value}</p>
-                {
-                    trend && trend > 0 ? (
-                        <Badge variant="outline" className="space-x-2 bg-green-500/10 px-4 py-2 border-none text-green-500 line-clamp-1">
+                {trend && (
+                    trend > 0 ? (
+                        <Badge variant="outline" className="space-x-2 bg-green-500/10 px-4 py-2 border-none text-green-500">
                             <span>{trend}%</span>
                             <TrendingUp className="size-4" />
                         </Badge>
                     ) : (
-                        <Badge variant="outline" className="space-x-2 bg-red-500/10 px-4 border-none text-red-500 line-clamp-1">
+                        <Badge variant="outline" className="space-x-2 bg-red-500/10 px-4 border-none text-red-500">
                             <span>{trend}%</span>
                             <TrendingUp className="size-4 rotate-180 transform" />
                         </Badge>
                     )
+                )
                 }
             </CardContent>
             <CardFooter className="p-0 text-muted-foreground text-xs">{footer}</CardFooter>
