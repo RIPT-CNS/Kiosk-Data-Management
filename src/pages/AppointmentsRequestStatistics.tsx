@@ -7,17 +7,17 @@ import { useAppointmentRequestStatistic } from "@/features/AppointmentRequestSta
 import { columns, data } from "@/features/AppointmentRequestStatistics/utils/constants";
 
 const AppointmentsRequestStatistics = () => {
-  const { loadingAPI, getAppointmentRequestStatistic, appointmentStatisticData } = useAppointmentRequestStatistic();
+  const { loadingAPI, getAppointmentStatistic, appointmentStatisticData } = useAppointmentRequestStatistic();
   return (
     <Card className="flex flex-col gap-4 p-6 w-full h-full">
       <div className="gap-4 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3">
         <Blocks />
       </div>
       <div className="gap-4 grid grid-cols-1 sm:grid-cols-3">
-        <div className="sm:col-span-2 h-auto">
+      <div className="flex col-span-3 lg:col-span-2">
           <AnnualChart />
         </div>
-        <div className="h-auto">
+        <div className="flex col-span-3 lg:col-span-1">
           <RoleChart />
         </div>
       </div>

@@ -7,23 +7,23 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 
 const chartData = [
-    { month: "Jan", appointments: 45 },
-    { month: "Feb", appointments: 52 },
-    { month: "Mar", appointments: 61 },
-    { month: "Apr", appointments: 58 },
-    { month: "May", appointments: 63 },
-    { month: "Jun", appointments: 70 },
-    { month: "Jul", appointments: 75 },
-    { month: "Aug", appointments: 68 },
-    { month: "Sep", appointments: 62 },
-    { month: "Oct", appointments: 59 },
-    { month: "Nov", appointments: 55 },
-    { month: "Dec", appointments: 50 },
+    { month: "Th1", appointments: 45 },
+    { month: "Th2", appointments: 52 },
+    { month: "Th3", appointments: 61 },
+    { month: "Th4", appointments: 58 },
+    { month: "Th5", appointments: 63 },
+    { month: "Th6", appointments: 70 },
+    { month: "Th7", appointments: 75 },
+    { month: "Th8", appointments: 68 },
+    { month: "Th9", appointments: 62 },
+    { month: "Th10", appointments: 59 },
+    { month: "Th11", appointments: 55 },
+    { month: "Th12", appointments: 50 },
 ]
 
 const chartConfig = {
     appointments: {
-        label: "Appointments",
+        label: "Số lịch hẹn",
         color: "hsl(var(--chart-1))",
     },
 }
@@ -32,7 +32,7 @@ const AnnualChart = () => {
     const totalAppointments = React.useMemo(() => chartData.reduce((acc, curr) => acc + curr.appointments, 0), [])
 
     return (
-        <Card className="w-full">
+        <Card className="border-primary/20 hover:border-primary w-full transition-all duration-300">
             <CardHeader className="flex flex-row justify-between items-center space-y-0 pb-2">
                 <div>
                     <CardTitle>Trong năm nay</CardTitle>
@@ -42,8 +42,8 @@ const AnnualChart = () => {
                 </div>
                 <div className="font-bold text-2xl">Tổng số: {totalAppointments}</div>
             </CardHeader>
-            <CardContent>
-                <ChartContainer config={chartConfig} className="w-full min-h-[100px]">
+            <CardContent className="flex-1">
+                <ChartContainer config={chartConfig} className="w-full max-h-56">
                     <BarChart
                         data={chartData}
                         margin={{
@@ -56,7 +56,7 @@ const AnnualChart = () => {
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="month" />
                         <YAxis />
-                        <ChartTooltip content={<ChartTooltipContent className="w-[150px]" nameKey="appointments" />} />
+                        <ChartTooltip content={<ChartTooltipContent className="w-40" nameKey="appointments" />} />
                         <Bar dataKey="appointments" fill={`var(--color-appointments)`} />
                     </BarChart>
                 </ChartContainer>

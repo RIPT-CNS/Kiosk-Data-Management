@@ -10,7 +10,7 @@ const StatisticBlock = ({
     footer,
 }: IStatisticBlockProps) => {
     return (
-        <Card className="relative flex flex-col gap-4 bg-gradient-to-b from-transparent to-primary/5 hover:shadow-lg dark:hover:shadow-primary/20 hover:shadow-primary/10 p-4 border-primary transition-all duration-300">
+        <Card className="relative flex flex-col gap-4 bg-gradient-to-b from-transparent to-primary/5 hover:shadow-lg dark:hover:shadow-primary/20 hover:shadow-primary/10 p-4 border-primary/20 hover:border-primary transition-all duration-300">
             <CardTitle>{title}</CardTitle>
             <CardContent className="flex items-center gap-4 p-0">
                 <p className="font-bold text-3xl">{value}</p>

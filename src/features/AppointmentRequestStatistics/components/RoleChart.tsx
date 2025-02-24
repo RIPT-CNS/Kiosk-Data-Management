@@ -1,86 +1,49 @@
 import { TrendingUp } from "lucide-react"
-import * as React from "react"
-import { Label, Pie, PieChart } from "recharts"
+import { Pie, PieChart } from "recharts"
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { type ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import { type ChartConfig, ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 
 const chartData = [
-    { role: "patient", bookings: 450, fill: "var(--color-patient)" },
-    { role: "doctor", bookings: 200, fill: "var(--color-doctor)" },
-    { role: "nurse", bookings: 150, fill: "var(--color-nurse)" },
-    { role: "admin", bookings: 50, fill: "var(--color-admin)" },
-    { role: "other", bookings: 30, fill: "var(--color-other)" },
+    { role: "guest", bookings: 15, fill: "var(--color-guest)" },
+    { role: "student", bookings: 22, fill: "var(--color-student)" },
+    { role: "officer", bookings: 13, fill: "var(--color-officer)" },
 ]
 
 const chartConfig = {
-    bookings: {
-        label: "Bookings",
-    },
-    patient: {
-        label: "Patient",
+    guest: {
+        label: "Khách",
         color: "hsl(var(--chart-1))",
     },
-    doctor: {
-        label: "Doctor",
+    student: {
+        label: "Sinh viên",
         color: "hsl(var(--chart-2))",
     },
-    nurse: {
-        label: "Nurse",
+    officer: {
+        label: "Cán bộ",
         color: "hsl(var(--chart-3))",
-    },
-    admin: {
-        label: "Admin",
-        color: "hsl(var(--chart-4))",
-    },
-    other: {
-        label: "Other",
-        color: "hsl(var(--chart-5))",
     },
 } satisfies ChartConfig
 
 const RoleChart = () => {
-    const totalBookings = React.useMemo(() => {
-        return chartData.reduce((acc, curr) => acc + curr.bookings, 0)
-    }, [])
-
     return (
-        <Card className="flex flex-col">
+        <Card className="flex-col border-primary/20 hover:border-primary w-full transition-all duration-300 lex">
             <CardHeader className="items-center pb-0">
-                <CardTitle>User Role Appointment Statistics</CardTitle>
-                <CardDescription>July 2025</CardDescription>
+                <CardTitle>Thống kê theo vai trò</CardTitle>
+                <CardDescription>Tháng 2</CardDescription>
             </CardHeader>
-            <CardContent className="flex-1 pb-0">
-                <ChartContainer config={chartConfig} className="mx-auto max-h-[250px] aspect-square">
+            <CardContent className="flex-1">
+                <ChartContainer config={chartConfig} className="w-full max-h-56">
                     <PieChart>
                         <ChartTooltip cursor={false} content={<ChartTooltipContent hideLabel />} />
-                        <Pie data={chartData} dataKey="bookings" nameKey="role" innerRadius={60} strokeWidth={5}>
-                            <Label
-                                content={({ viewBox }) => {
-                                    if (viewBox && "cx" in viewBox && "cy" in viewBox) {
-                                        return (
-                                            <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
-                                                <tspan x={viewBox.cx} y={viewBox.cy} className="fill-foreground font-bold text-3xl">
-                                                    {totalBookings.toLocaleString()}
-                                                </tspan>
-                                                <tspan x={viewBox.cx} y={(viewBox.cy || 0) + 24} className="fill-muted-foreground">
-                                                    Bookings
-                                                </tspan>
-                                            </text>
-                                        )
-                                    }
-                                }}
-                            />
-                        </Pie>
+                        <ChartLegend content={<ChartLegendContent />} />
+                        <Pie data={chartData} dataKey="bookings" nameKey="role" strokeWidth={5} />
                     </PieChart>
                 </ChartContainer>
             </CardContent>
             <CardFooter className="flex-col gap-2 text-sm">
                 <div className="flex items-center gap-2 font-medium leading-none">
-                    Bookings increased by 8.3% this month <TrendingUp className="w-4 h-4" />
-                </div>
-                <div className="text-muted-foreground leading-none">
-                    Showing appointment bookings by user role for July 2025
+                    Số lượng khách đặt lịch hẹn tăng 15% so với tháng trước <TrendingUp className="size-4" />
                 </div>
             </CardFooter>
         </Card>
