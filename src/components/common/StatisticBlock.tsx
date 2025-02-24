@@ -16,12 +16,12 @@ const StatisticBlock = ({
                 <p className="font-bold text-3xl">{value}</p>
                 {
                     trend && trend > 0 ? (
-                        <Badge variant="outline" className="space-x-2 bg-green-500/10 px-4 py-2 border-none text-green-500">
+                        <Badge variant="outline" className="space-x-2 bg-green-500/10 px-4 py-2 border-none text-green-500 line-clamp-1">
                             <span>{trend}%</span>
                             <TrendingUp className="size-4" />
                         </Badge>
                     ) : (
-                        <Badge variant="outline" className="space-x-2 bg-red-500/10 px-4 border-none text-red-500">
+                        <Badge variant="outline" className="space-x-2 bg-red-500/10 px-4 border-none text-red-500 line-clamp-1">
                             <span>{trend}%</span>
                             <TrendingUp className="size-4 rotate-180 transform" />
                         </Badge>

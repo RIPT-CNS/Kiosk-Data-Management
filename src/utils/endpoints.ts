@@ -15,3 +15,4 @@ export const UPDATE_SCHOOL_CALENDAR_DATA_IP =
 export const GET_SCHOOL_CALENDAR_STATISTICS_API =
   BACKEND_IP + "/statistics/class-calendar";
 export const GET_ROLE_STATISTICS_IP = BACKEND_IP + "/statistics/roles";
+export const GET_APP_REQUEST_STATISTICS_IP = BACKEND_IP + "/statistics/appointment-requests";
