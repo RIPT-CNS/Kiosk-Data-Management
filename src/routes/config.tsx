@@ -3,7 +3,8 @@ import { IRouteConfig } from "@/types/RouteConfig";
 import {
   AreaChartIcon as ChartArea,
   Database,
-  Frame
+  Frame,
+  IdCard
 } from "lucide-react";
 import { lazy } from "react";
 
@@ -83,9 +84,9 @@ export const routeConfig: IRouteConfig = {
   },
   projects: [
     {
-      name: "Design Engineering",
+      name: "Xác thực dữ liệu",
       url: "#",
-      icon: Frame,
+      icon: IdCard,
     },
   ],
 };
